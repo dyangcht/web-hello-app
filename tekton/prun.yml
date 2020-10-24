@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: pipeline-1-xxx-1
+spec:
+  params:
+    - name: GIT_URL
+      value: 'https://github.com/dyangcht/web-hello-app.git'
+  pipelineRef:
+    name: new-pipeline-1
+  workspaces:
+  - name: app-source
+    persistentVolumeClaim:
+      claimName: app-source-pvc
+  - name: maven-settings
+    emptyDir: {}

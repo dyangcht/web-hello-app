@@ -1,0 +1,29 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: new-app-generate
+spec:
+  params:
+    - name: GIT_URL
+      type: string
+      description: Your code's git url
+    - name: GIT_BRANCH
+      type: string
+      description: Your code's git branch name, eg. main
+      default: main
+    - name: SOURCE_IS
+      type: string
+      description: The base image stream name
+    - name: APP_NAME
+      type: string
+      description: Application name
+  steps:
+    - image: 'image-registry.openshift-image-registry.svc:5000/openshift/cli:latest'
+      name: deploy
+      resources: {}
+      script: >
+        #!/usr/bin/env bash
+
+        set -x
+        oc new-app --name $(params.APP_NAME) '$(params.SOURCE_IS)~$(params.GIT_URL)#$(params.GIT_BRANCH)'
+
