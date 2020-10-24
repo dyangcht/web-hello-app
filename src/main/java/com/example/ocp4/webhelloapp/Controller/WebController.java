@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class WebController {
     @GetMapping("/{name}")
     public String hello(@PathVariable String name) {
-        return "Hello, " + name;
+        return "Hello 你好, " + name;
     }
 }
