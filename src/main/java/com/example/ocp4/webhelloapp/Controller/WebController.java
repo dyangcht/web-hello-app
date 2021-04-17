@@ -6,10 +6,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/web-hello")
+
 public class WebController {
-    @GetMapping("/{name}")
+    @RequestMapping("/hello/v1/{name}")
+    // @GetMapping("/{name}")
     public String hello(@PathVariable String name) {
-        return "Hello 你好, " + name;
+        return "Hello 你好, " + name + "\n";
+    }
+
+    @RequestMapping("/prod/v1/{name}")
+    public String prod(@PathVariable String name) {
+        return "Product name is " + name + "\n";
+    }
+
+    @RequestMapping("/query/v1/{name}")
+    public String query(@PathVariable String name) {
+        return "Query string is " + name + "\n";
     }
 }
