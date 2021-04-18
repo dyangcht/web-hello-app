@@ -26,4 +26,10 @@ public class WebController {
         System.out.println("query");
         return "Query string is " + name + "\n";
     }
+
+    @PostMapping("/post/v1")
+    public String postMethod(@RequestBody String name) {
+        System.out.println("post method ...");
+        return "Post string is " + name + "\n";
+    }
 }
