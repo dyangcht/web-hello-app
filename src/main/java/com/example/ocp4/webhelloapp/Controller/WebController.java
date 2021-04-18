@@ -8,7 +8,7 @@ public class WebController {
     @RequestMapping("/hello/v1/{name}")
     // @GetMapping("/{name}")
     public String hello(@PathVariable String name) {
-        System.out.println("hello");
+        System.out.println("hello v1");
         return "Hello 你好, " + name + "\n";
     }
 
