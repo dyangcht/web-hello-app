@@ -9,8 +9,9 @@ public class WebController {
     @RequestMapping("/hello/v2/{name}")
     // @GetMapping("/{name}")
     public String hello(@PathVariable String name) {
+        RestTemplate restTemplate = new RestTemplate();
         System.out.println("hello v2");
-        restTemplate.getForObject("http://web-hello-app.demo1.svc.cluster.local:8080/hello/v1/" + name);
+        restTemplate.getForObject("http://web-hello-app.demo1.svc.cluster.local:8080/hello/v1/" + name, Value.class);
         return name + " 您好，這是版本二！\n";
     }
 
