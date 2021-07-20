@@ -1,6 +1,7 @@
 package com.example.ocp4.webhelloapp.Controller;
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 @RestController
 
@@ -9,6 +10,7 @@ public class WebController {
     // @GetMapping("/{name}")
     public String hello(@PathVariable String name) {
         System.out.println("hello v2");
+        restTemplate.getForObject("http://web-hello-app.demo1.svc.cluster.local:8080/hello/v1/" + name);
         return name + " 您好，這是版本二！\n";
     }
 
