@@ -8,8 +8,8 @@ public class WebController {
     @RequestMapping("/hello/v2/{name}")
     // @GetMapping("/{name}")
     public String hello(@PathVariable String name) {
-        System.out.println("hello v1");
-        return "Hello 你好, " + name + "\n";
+        System.out.println("hello v2");
+        return name + " 您好，這是版本二！\n";
     }
 
     @RequestMapping("/prod/v2/{name}")
