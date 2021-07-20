@@ -5,26 +5,26 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 
 public class WebController {
-    @RequestMapping("/hello/v1/{name}")
+    @RequestMapping("/hello/v2/{name}")
     // @GetMapping("/{name}")
     public String hello(@PathVariable String name) {
         System.out.println("hello v1");
         return "Hello 你好, " + name + "\n";
     }
 
-    @RequestMapping("/prod/v1/{name}")
+    @RequestMapping("/prod/v2/{name}")
     public String prod(@PathVariable String name) {
         System.out.println("product");
         return "Product name is " + name + "\n";
     }
 
-    @RequestMapping("/query/v1/{name}")
+    @RequestMapping("/query/v2/{name}")
     public String query(@PathVariable String name) {
         System.out.println("query");
         return "Query string is " + name + "\n";
     }
 
-    @PostMapping("/post/v1")
+    @PostMapping("/post/v2")
     public String postMethod(@RequestBody String name) {
         System.out.println("post method ...");
         return "Post string is " + name + "\n";
