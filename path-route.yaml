@@ -5,6 +5,8 @@ metadata:
 spec:
   host: hello.apps.cluster-61f3.sandbox1668.opentlc.com
   path: "/hello/v1"
+#  port:
+#    targetPort: 8080
   to:
-    kind: Service
-    name: web-hello-app.demo1.svc.cluster.local
+    kind: ClusterIP
+    name: 172.30.20.78
